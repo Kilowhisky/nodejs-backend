@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "mongo-mac": "mkdir mongo-db; mongod --dbpath mongo-db",
     "start": "nodemon app/server.js --exec babel-node",
     "build": "babel app -d dist",
     "serve": "node dist/server.js"
