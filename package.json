@@ -10,7 +10,8 @@
     "mongo-mac": "mkdir mongo-db; mongod --dbpath mongo-db",
     "start": "nodemon app/server.js --exec babel-node",
     "build": "babel app -d dist",
-    "serve": "node dist/server.js"
+    "serve": "node dist/server.js",
+    "test": "nodemon --watch . --exec 'mocha --require babel-register'"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -27,6 +28,8 @@
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.17.5"
   }
 }
