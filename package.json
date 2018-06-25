@@ -8,10 +8,10 @@
   "private": true,
   "scripts": {
     "mongo-mac": "mkdir mongo-db; mongod --dbpath mongo-db",
-    "start": "nodemon app/server.js --exec babel-node",
+    "start": "nodemon app/server.js --exec babel-node --inspect",
     "build": "babel app -d dist",
     "serve": "node dist/server.js",
-    "test": "nodemon --watch . --exec 'mocha --require babel-register'"
+    "test": "nodemon --watch . --exec 'mocha --recursive --require babel-register'"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
