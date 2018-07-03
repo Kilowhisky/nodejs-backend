@@ -1,4 +1,3 @@
-import Promise from 'bluebird';
 import mongoose from 'mongoose';
 import httpStatus from 'http-status';
 import APIError from '../helpers/APIError';
@@ -18,6 +17,13 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
+}, {
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true
+  }
 });
 
 /**
@@ -28,10 +34,16 @@ const PostSchema = new mongoose.Schema({
  */
 
 /**
+ * Virtuals
+ */
+PostSchema.virtual('id').get(function() {
+  return this._id.toHexString();
+});
+
+/**
  * Methods
  */
-PostSchema.method({
-});
+PostSchema.method({});
 
 /**
  * Statics
@@ -50,7 +62,7 @@ PostSchema.statics = {
           return post;
         }
         const err = new APIError('No such post exists!', httpStatus.NOT_FOUND);
-        return Promise.reject(err);
+        throw err;
       });
   },
 

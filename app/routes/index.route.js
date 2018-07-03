@@ -1,5 +1,5 @@
 import express from 'express';
-
+import postRoutes from './post.route';
 
 const router = express.Router(); // eslint-disable-line new-cap
 
@@ -14,6 +14,6 @@ router.get('/health-check', (req, res) =>
 // mount auth routes at /auth
 //router.use('/auth', authRoutes);
 
-//router.use('/posts', postRoutes);
+router.use('/posts', postRoutes);
 
 export default router;

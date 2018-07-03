@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 import config from './config/config';
 import app from './config/express';
+import bluebird from 'bluebird';
+
+// plugin bluebird promise in mongoose
+mongoose.Promise = bluebird;
 
 // connect to mongo db
 const mongoUri = config.mongo.host;
